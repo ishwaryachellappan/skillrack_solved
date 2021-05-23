@@ -1,0 +1,74 @@
+Example Input/Output 1:
+
+Input
+
+8
+
+14 398 840 77 38 132 599 639
+
+Output:
+
+Unique Unit Digits: 987420
+
+Explanation:
+
+The unit digits of the given 8 integers are 4 8 0,7 8, 2.9 and 9. The unique unit digits in descending order are 9. 8. 7, 4, 2 and 0.
+
+Example Input/Output 2:
+
+Input:
+
+123 5873 93 543 3331
+
+Dutput:
+
+Unique Unit Digits: 31
+
+Max Execution Time Limit: 50 millises
+
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    
+    int n,i,j,num[100];
+    int arr[100],temp;
+    printf("enter number of terms:");
+    scanf("%d",&n);
+    printf("enter %d elements one by one:",n);
+    for(i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+    }
+    //printing remainder of each term
+    for(i=0;i<n;i++){
+        num[i]=arr[i]%10;
+      }
+    //sorting of elements in desending order
+    for (int i = 0; i < n; i++) {     
+        for (int j = i+1; j < n; j++) {     
+           if(num[i] < num[j]) {    
+               temp = num[i];    
+               num[i] = num[j];    
+               num[j] = temp;    
+           }     
+        }     
+    }    
+    for (int i = 0; i <n; i++) {     
+            } 
+    //printing distinct elements
+    for (i=0; i<n; i++)
+   {
+   for (j=0; j<i; j++)
+   {
+    if (num[i] == num[j])
+    break;
+    }
+    if (i == j)
+     printf("%d", num[i]);
+     }
+return 0;
+}

@@ -1,0 +1,57 @@
+Reverse Even Integers
+
+The program must accept N integers as the input. The program must print at the even in in reverse order as the output. If there is no even integer then the program must print -1
+
+Boundary Condition(s):
+
+1 <= N <= 100
+
+1 < Each integer value <= 10^5
+
+Example Input/Output 1:
+
+input:
+
+5
+
+12578
+
+Output:
+
+82
+
+Example Input/Output 2:
+
+Input:
+
+4
+
+1357
+
+Output
+
+Max Execution Time Limit: 1000 millisecs
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+int n,arr[100],i,j,temp,printed=0;
+scanf("%d",&n);
+for(i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+}
+for(i=n-1;i<=0;i--){
+    if(arr[i]%2==0){
+        printf("%d ",arr[i]);
+        printed=1;
+    }
+}
+if(!printed){
+    printf("-1");
+}
+
+return 0;
+}
