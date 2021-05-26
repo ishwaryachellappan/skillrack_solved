@@ -1,0 +1,285 @@
+
+
+string reverse:
+
+#include <stdio.h>
+
+int main()
+{
+    char str[100],rev[100];
+    int len,i,j,count=0,end;
+    printf("enter string:");
+    scanf("%s",str);
+    
+    while(str[count]!='\0'){
+    count++;
+    }
+    j=count-1;
+    {
+        for(i=0;i<count;i++){
+            rev[i]=str[j];
+            j--;
+        }
+        
+    }
+    printf("%s",rev);
+    return 0;
+}
+
+
+_________________________________________________
+
+string palindrome
+
+#include <stdio.h>
+
+int main()
+{
+    char str[100],rev[100];
+    int len,i,j,flag=0,end;
+    printf("enter string:");
+    scanf("%s",str);
+    
+   len=strlen(str);
+   for(i=0;i<len;i++){
+       if(str[i]!=str[len-i-1]){
+           flag=1;
+           break;
+       }
+   }
+    if(flag)
+    {
+    printf("no");
+        
+    }
+    else
+    {
+        printf("yes");
+    }
+    return 0;
+}
+
+
+________________________________________________________________
+
+string rigth shift:
+
+
+#include<stdio.h>
+ 
+void  main()
+{
+  int i,n,a[100],temp;
+ 
+    printf("Enter the number of elements:\n") ;
+    scanf("%d",&n);
+ 
+    printf("Enter the elements\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+ 
+    printf("Original array\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+ 
+    /* shifting array elements */
+    temp=a[n-1];
+    for(i=n-1;i>0;i--)
+    {
+        a[i]=a[i-1];
+    }
+    a[0]=temp;
+ 
+    printf("\nNew array after rotating by one postion in the right direction\n");
+    for(i=0;i<n;i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
+
+___________________________________________
+swap two numbers:
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a,b,temp;
+    printf("enter a:");
+    scanf("%d",&a);
+    printf("enter b:");
+    scanf("%d",&b);
+    temp=a;
+    a=b;
+    b=temp;
+    printf("a:%d b:%d",a,b);
+
+    return 0;
+}
+
+__________________________________________________
+
+merge two sorted arrays:
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[100],arr1[100],n1,n,i;
+    printf("enter number of elements");
+    scanf("%d",&n);
+    printf("enter elements:");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    printf("enter number of elements second array:");
+    scanf("%d",&n1);
+    printf("enter elements:");
+    for(i=0;i<n1;i++){
+        scanf("%d",&arr1[i]);
+    }
+    
+    for(i=0;i<n;i++){
+        printf("%d",arr[i]);
+    }
+    for(i=0;i<n1;i++){
+        printf("%d",arr1[i]);
+    }
+    return 0;
+}
+
+
+______________________________________________
+
+merge two sorted arrays:
+
+#include <stdio.h>
+#include <stdlib.h>
+int merge_two_sorted_arrays(int arr1[], int arr2[], int arr3[], int m, int n)
+{
+int i,j,k;
+i = j = k = 0;
+for(i=0;i < m && j < n;)
+{
+if(arr1[i] < arr2[j])
+{
+arr3[k] = arr1[i];
+k++;
+i++;
+}
+else
+{
+arr3[k] = arr2[j];
+k++;
+j++;
+}
+}
+while(i < m)
+{
+arr3[k] = arr1[i];
+k++;
+i++;
+}
+while(j < n)
+{
+arr3[k] = arr2[j];
+k++;
+j++;
+}
+}
+int main()
+{
+int n,m;
+printf("\nEnter the size of Array 1 : ");
+scanf("%d",&m);
+printf("\nEnter the size of Array 2 : ");
+scanf("%d",&n);
+int arr1[m],arr2[n];
+int arr3[m+n];
+int i;
+printf("\nInput the Array 1 elements : ");
+for(i = 0; i < m; i++)
+{
+scanf("%d",&arr1[i]);
+}
+printf("\nInput the Array 2 elements : ");
+for(i = 0;i<n;i++)
+{
+scanf("%d",&arr2[i]);
+}
+merge_two_sorted_arrays(arr1,arr2,arr3,m,n);
+printf("\nThe Merged Sorted Array : ");
+for(i = 0; i < n + m; i++)
+{
+printf("%d ",arr3[i]);
+}
+printf("\n");
+return 0;
+}
+
+
+______________________________________________
+
+Write a C program to input electricity unit charge and calculate the total electricity bill according to the given condition:
+For first 50 units Rs. 0.50/unit
+For next 100 units Rs. 0.75/unit
+For next 100 units Rs. 1.20/unit
+For unit above 250 Rs. 1.50/unit
+An additional surcharge of 20% is added to the bill.
+
+How to calculate electricity bill using if else in C programming. Program to find electricity bill using if else in C. Logic to find net electricity bill in C program.
+
+/**
+ * C program to calculate total electricity bill
+ */
+
+#include <stdio.h>
+
+int main()
+{
+    int unit;
+    float amt, total_amt, sur_charge;
+
+    /* Input unit consumed from user */
+    printf("Enter total units consumed: ");
+    scanf("%d", &unit);
+
+
+    /* Calculate electricity bill according to given conditions */
+    if(unit <= 50)
+    {
+        amt = unit * 0.50;
+    }
+    else if(unit <= 150)
+    {
+        amt = 25 + ((unit-50) * 0.75);
+    }
+    else if(unit <= 250)
+    {
+        amt = 100 + ((unit-150) * 1.20);
+    }
+    else
+    {
+        amt = 220 + ((unit-250) * 1.50);
+    }
+
+    /*
+     * Calculate total electricity bill
+     * after adding surcharge
+     */
+    sur_charge = amt * 0.20;
+    total_amt  = amt + sur_charge;
+
+    printf("Electricity Bill = Rs. %.2f", total_amt);
+
+    return 0;
+}
+
+____________________________________________
+
+
